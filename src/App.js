@@ -3,7 +3,7 @@ import Todo from "./components/Todo";
 import "./components/Todo.css";
 const initVal = { name: "", id: "none", isCompleted: false };
 
-const testData = [{ name: "bananas", id: Date.now(), isCompleted: false }];
+const testData = { name: "bananas", id: Date.now(), isCompleted: false };
 
 class App extends React.Component {
   constructor() {
@@ -13,7 +13,10 @@ class App extends React.Component {
       todoItems: []
     };
   }
-
+  componentDidMount() {
+    console.log("we are mounted, now fetching data from the 'server'");
+    this.setState({ todoItems: [testData] });
+  }
   clearAll = event => {
     console.log("attempting to clear");
     this.setState({

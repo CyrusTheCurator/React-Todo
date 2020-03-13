@@ -1,5 +1,4 @@
 import React from "react";
-import Todo from "./Todo";
 
 const TodoForm = props => {
   return (
@@ -10,12 +9,12 @@ const TodoForm = props => {
         value={props.state.newItem.name}
       />
 
-      <button onClick={props.handleButton}>
-        PRESS THIS TO ADD YOUR TODO!!!
+      <button className="button" onClick={props.handleButton}>
+        Add Item{" "}
       </button>
 
-      <button onClick={props.clearAll}>
-        Press here to clear all completed items
+      <button className="button" onClick={props.clearAll}>
+        Clear Completed{" "}
       </button>
     </>
   );
