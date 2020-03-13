@@ -1,4 +1,7 @@
 import React from "react";
+import Todo from "./components/Todo";
+import "./components/Todo.css";
+const initVal = { name: "", id: "none", isCompleted: false };
 
 const testData = [{ name: "bananas", id: Date.now(), isCompleted: false }];
 
@@ -6,16 +9,27 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      newItem: { name: "", id: "none", isCompleted: false },
-      todoItems: testData
+      newItem: initVal,
+      todoItems: []
     };
   }
+
+  clearAll = event => {
+    console.log("attempting to clear");
+    this.setState({ todoItems: [] });
+  };
 
   handleInputChange = event => {
     this.setState({ newItem: { name: event.target.value } });
   };
   handleButton = event => {
-    this.setState({ todoItems: [...this.state.todoItems, this.state.newItem] });
+    this.setState({
+      newItem: initVal,
+      todoItems: [
+        ...this.state.todoItems,
+        { name: this.state.newItem.name, id: Date.now(), isCompleted: false }
+      ]
+    });
   };
   handleItemClick = id => {
     this.setState({
@@ -36,29 +50,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>you are about to add: {this.state.newItem.name}</h2>
-        <input
-          onChange={this.handleInputChange}
-          value={this.state.newItem.name ? this.state.newItem.name : ""}
+        <Todo
+          state={this.state}
+          setState={this.setState}
+          handleInputChange={this.handleInputChange}
+          handleButton={this.handleButton}
+          handleItemClick={this.handleItemClick}
+          clearAll={this.clearAll}
         />
-
-        <button onClick={this.handleButton}>
-          PRESS THIS TO ADD YOUR TODO!!!
-        </button>
-
-        {this.state.todoItems
-          ? this.state.todoItems.map(item => {
-              return (
-                <div
-                  onClick={() => {
-                    this.handleItemClick(item.id);
-                  }}
-                >
-                  {item.name}
-                </div>
-              );
-            })
-          : "Add items to your list to begin"}
       </div>
     );
   }

@@ -1,4 +1,25 @@
 import React from "react";
 import App from "../App";
+import TodoForm from "./TodoForm";
+import TodoList from "./TodoList";
 
-class Todo extends App {}
+const Todo = props => {
+  return (
+    <>
+      <TodoForm
+        state={props.state}
+        setState={props.setState}
+        handleInputChange={props.handleInputChange}
+        handleButton={props.handleButton}
+        clearAll={props.clearAll}
+      />
+      <TodoList
+        state={props.state}
+        setState={props.setState}
+        handleItemClick={props.handleItemClick}
+      />
+    </>
+  );
+};
+
+export default Todo;
