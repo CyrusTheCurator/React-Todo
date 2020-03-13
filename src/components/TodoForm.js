@@ -14,7 +14,9 @@ const TodoForm = props => {
         PRESS THIS TO ADD YOUR TODO!!!
       </button>
 
-      <button onClick={props.clearAll}>Press here to clear all items</button>
+      <button onClick={props.clearAll}>
+        Press here to clear all completed items
+      </button>
     </>
   );
 };

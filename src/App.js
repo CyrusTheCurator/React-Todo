@@ -16,7 +16,11 @@ class App extends React.Component {
 
   clearAll = event => {
     console.log("attempting to clear");
-    this.setState({ todoItems: [] });
+    this.setState({
+      todoItems: this.state.todoItems.filter(item => {
+        return !item.isCompleted;
+      })
+    });
   };
 
   handleInputChange = event => {
