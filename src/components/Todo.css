@@ -1,4 +1,20 @@
+.todoAppContainer {
+  margin: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+.todoApp {
+  width: 100%;
+}
+
 .item {
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: fit-content;
+}
+.item:hover {
+  opacity: 30%;
 }
 
 .purchased {
@@ -9,4 +25,13 @@
 .button {
   margin-left: 10%;
   font-size: 2rem;
+  background-color: blue;
+  color: white;
+  border: cyan solid 5px;
+  transition: background-color 0.25s;
+}
+
+.button:hover {
+  background-color: yellow;
+  cursor: pointer;
 }

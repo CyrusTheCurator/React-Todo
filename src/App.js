@@ -56,15 +56,17 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     return (
-      <div>
-        <Todo
-          state={this.state}
-          setState={this.setState}
-          handleInputChange={this.handleInputChange}
-          handleButton={this.handleButton}
-          handleItemClick={this.handleItemClick}
-          clearAll={this.clearAll}
-        />
+      <div className="todoAppContainer">
+        <div className="todoApp">
+          <Todo
+            state={this.state}
+            setState={this.setState}
+            handleInputChange={this.handleInputChange}
+            handleButton={this.handleButton}
+            handleItemClick={this.handleItemClick}
+            clearAll={this.clearAll}
+          />
+        </div>
       </div>
     );
   }
